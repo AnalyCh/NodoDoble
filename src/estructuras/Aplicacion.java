@@ -14,6 +14,8 @@ public class Aplicacion {
 		lista.imprimir();
 		lista.insertarInicio("h");
 		lista.imprimir();
+		lista.insertarFinal("a");
+		lista.imprimir();
 
 		System.out.println("La lista al revés es:");
 		lista.imprimirUltimo();
@@ -33,16 +35,15 @@ public class Aplicacion {
 		}
 		*/
 		
-		aux="h";
+		System.out.println("Eliminando el dato de la pos "+ num + ": "+ b.getInformacion());
+		lista.eliminar(b);
+		lista.imprimir();
 	
+		aux="h";
 		System.out.println("eliminando el dato "+ aux );
 		lista.eliminarDato(aux);
 		lista.imprimir();
 		
-		System.out.println("Eliminando el dato de la pos "+ num + ":"+ b.getInformacion());
-		lista.eliminarNum(b);
-		lista.imprimir();
-		lista.imprimirUltimo();
 		
 	}
 

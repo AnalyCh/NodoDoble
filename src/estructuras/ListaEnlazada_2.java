@@ -44,7 +44,7 @@ public class ListaEnlazada_2 {
 	}
 	 */
 	
-	public void eliminarNum(Nodo aux){ //--> 
+	public void eliminar(Nodo aux){ //--> 
 		Nodo b= aux.ant;
 		Nodo a= aux.getSig();
 		enlazar(b, a);
@@ -130,7 +130,7 @@ public class ListaEnlazada_2 {
 	
 	public void imprimirUltimo(){
 		Nodo aux= ultimo;
-		while(aux.ant!= null){
+		while(aux!= null){
 			System.out.print(aux.getInformacion() +" ");
 			aux= aux.ant;
 		}
