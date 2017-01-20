@@ -37,12 +37,7 @@ public class ListaEnlazada_2 {
 		}
 		tam++;
 	}
-	/*
-	 * private void enlazar(Nodo nodA, Nodo nodB){
-		nodA.sig=nodB;
-		nodB.ant= nodA;
-	}
-	 */
+
 	
 	public void eliminar(Nodo aux){ //--> 
 		Nodo b= aux.ant;
