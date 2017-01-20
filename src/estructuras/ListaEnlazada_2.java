@@ -35,34 +35,80 @@ public class ListaEnlazada_2 {
 			enlazar(ultimo, nuevo);
 			ultimo=nuevo;
 		}
+		tam++;
 	}
-	public void mostrar() {
-		  Nodo aux = inicio;
-		 while( aux != null ) {
-		  System.out.print( aux.getInformacion() + "-> " );
-		   aux= aux.sig; 
-		   } 
-		 System.out.println("null");
-		  }
 	/*
-	 * 
-	 * ublic Nodo buscar(int dato) {
-  Nodo buscado = null; Nodo iterador = cabeza;
- while
- ( buscado == null && iterador != null ) {
-if
- ( iterador.informacion == dato ) { buscado = iterador; } iterador = iterador.siguiente; }
-return
- buscado; }
- 
- public void mostrar() {
-  Nodo aux = inicio;
- while( aux != null ) {
-  System.out.print( iterador.informacion + " -> " );
-   iterador = iterador.siguiente; 
-   } 
-  }
+	 * private void enlazar(Nodo nodA, Nodo nodB){
+		nodA.sig=nodB;
+		nodB.ant= nodA;
+	}
 	 */
+	
+	public void eliminarNum(Nodo aux){ //--> 
+		Nodo b= aux.ant;
+		Nodo a= aux.getSig();
+		enlazar(b, a);
+	}
+	
+	
+	public void eliminarDato(String entrada){
+		Nodo actual, anterior;
+		boolean encontrado;
+	
+		actual = inicio;
+		anterior = null;
+		encontrado = false;
+		
+		while ((actual != null) && (!encontrado)){
+		encontrado = (actual.getInformacion() == entrada);
+			if (!encontrado){
+		anterior = actual;
+		actual = actual.sig;
+		}
+		}if (actual != null){
+			if (actual == inicio){
+				inicio = actual.getSig();
+			}
+			else{
+				anterior.setSig(actual.getSig());
+			}
+		actual = null;
+		}
+		tam--;
+		
+	}
+
+	public Nodo buscar(String dato) {
+		Nodo buscado = null; 
+		Nodo aux = inicio;
+		while( buscado == null && aux != null ) {
+			if
+				( aux.getInformacion() == dato ) { 
+					buscado = aux;
+				} 
+				aux = aux.getSig();
+			}
+			return buscado;
+			
+	}
+	
+	public Nodo buscarNum(int num){
+		
+		Nodo buscado= null;
+		Nodo aux=inicio;
+		int i=0;
+		while(i<num){
+			buscado=aux;
+			aux= aux.getSig();
+			i++;
+		}
+		
+		return buscado;
+		
+	}
+ 
+
+	 
 	
 	private void enlazar(Nodo nodA, Nodo nodB){
 		nodA.sig=nodB;
@@ -72,6 +118,31 @@ return
 	public boolean estavacia(){
 		return(inicio==null);
 	}
+	
+	public void imprimir() {
+		  Nodo aux = inicio;
+		 while( aux != null ) {
+		  System.out.print( aux.getInformacion() +" "  );
+		   aux= aux.sig; 
+		   } 
+		 System.out.println();
+		  }
+	
+	public void imprimirUltimo(){
+		Nodo aux= ultimo;
+		while(aux.ant!= null){
+			System.out.print(aux.getInformacion() +" ");
+			aux= aux.ant;
+		}
+		System.out.println();
+	}
+
+	@Override
+	public String toString() {
+		return "ListaEnlazada_2 [inicio=" + inicio + ", ultimo=" + ultimo
+				+ ", tam=" + tam + "]";
+	}
+	
 	
 
 }

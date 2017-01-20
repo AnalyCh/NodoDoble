@@ -1,17 +1,48 @@
 package estructuras;
 
+import javax.sound.midi.SysexMessage;
+
 public class Aplicacion {
 	public static void main(String[] args){
 		
 		ListaEnlazada_2 lista= new ListaEnlazada_2();
 		lista.insertarInicio("l");
-		lista.mostrar();
+		lista.imprimir();
 		lista.insertarInicio("o");
-		lista.mostrar();
+		lista.imprimir();
 		lista.insertarFinal("a");
-		lista.mostrar();
+		lista.imprimir();
 		lista.insertarInicio("h");
-		lista.mostrar();
+		lista.imprimir();
+
+		System.out.println("La lista al revés es:");
+		lista.imprimirUltimo();
+		
+		//lista.buscar("h");
+		String aux= "p";
+		int num=3;
+		Nodo a= lista.buscar(aux);
+		System.out.println( (a !=null)? "si existe el dato: "+ aux:"no existe el dato: "+aux);
+		Nodo b= lista.buscarNum(num);
+		System.out.println((b!=null)? "si existe inf. en la posición "+num +": "+b.getInformacion(): "no existe inf. en la pos: "+num);
+	/*	if(lista.buscar("a")==null){
+			System.out.println("elemento no encontrado");
+		}
+		else{
+			System.out.println("elemento encontrado");
+		}
+		*/
+		
+		aux="h";
+	
+		System.out.println("eliminando el dato "+ aux );
+		lista.eliminarDato(aux);
+		lista.imprimir();
+		
+		System.out.println("Eliminando el dato de la pos "+ num + ":"+ b.getInformacion());
+		lista.eliminarNum(b);
+		lista.imprimir();
+		lista.imprimirUltimo();
 		
 	}
 
